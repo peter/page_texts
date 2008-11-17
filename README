@@ -1,0 +1,21 @@
+PageTexts
+=========
+
+Plugin that provides an admin web UI for editing certain texts on pages, translating them
+to different locales, and keeping the texts version controlled.
+
+
+Dependendencies
+=======
+
+The plugin was tested on Rails 2.2. It depends on the following plugins:
+
+acts_as_versioned - http://github.com/technoweenie/acts_as_versioned/tree/master
+globalize2 - http://github.com/joshmh/globalize2/tree/master
+
+Example
+=======
+
+TODO
+
+Copyright (c) 2008 Peter Marklund, released under the MIT license
