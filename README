@@ -5,7 +5,7 @@ Plugin that provides an admin web UI for editing certain texts on pages, transla
 to different locales, and keeping the texts version controlled.
 
 
-Dependendencies
+Dependencies
 =======
 
 The plugin was tested on Rails 2.2. It depends on the following plugins:
