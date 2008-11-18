@@ -9,6 +9,11 @@ class PageText < ActiveRecord::Base
   def translation
     globalize_translations.find_by_locale(I18n.locale)
   end
+
+  def reload
+    @globalize = nil
+    super
+  end
   
   private
     def destroy_all_translations
