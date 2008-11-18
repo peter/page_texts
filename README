@@ -16,11 +16,20 @@ globalize2 - http://github.com/joshmh/globalize2/tree/master
 Usage
 =======
 
-TODO: creating tables
+Generate a migration that sets up the tables:
 
-TODO: setting up the web UI
+class AddPageTexts < ActiveRecord::Migration
+  def self.up
+    PageTexts.create_tables
+    PageTextTranslation.create_versioned_table
+  end
+
+  def self.down
+  end
+end
+
+If you want to use the web UI, add this to routes.rb:
+
 map.resources :page_texts
-authentication
-
 
 Copyright (c) 2008 Peter Marklund, released under the MIT license
