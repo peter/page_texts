@@ -1,0 +1,52 @@
+<% 
+  @locale_options = PageTexts.locales.map { |locale| [locale, locale] }
+%>
+
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+    <%= javascript_include_tag :defaults %>
+    <title><%= h(@page_title) %></title>
+    <style type="text/javascript">
+    div#notice, div#error {
+      margin: 10px;
+      padding: 3px 10px;
+      border: 1px solid red;
+    }
+
+    div#error {
+      background-color: #F3C6CC;
+      color: red;
+    }
+
+    div#notice {
+      border-color: #72A974;
+      color: #597B5C;
+      background-color: #BCFFBD;
+    }
+    </style>
+  </head>
+  <body>
+	  <% if @page_title -%><h1><%=h @page_title %></h1><% end -%>
+
+    <% form_tag(params, :method => :get, :id => 'locale_form') do %>
+      <p>
+        Locale:
+        <%= select_tag(:locale, options_for_select(@locale_options, I18n.locale),
+          :onchange => "$('locale_form').submit()")  %>
+      </p>      
+    <% end %>
+
+    <% [:notice, :error].each do |message| %>
+    <div id="<%= message %>" style="display: <%= flash[message] ? 'block' : 'none' %>">
+      <%= h(flash[message]) if flash[message] %>
+    </div>
+    <% end %>
+
+    <div style="margin-top: 50px">  
+      <%= yield %>
+    </div>
+  </body>
+</html>

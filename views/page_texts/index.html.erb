@@ -1,0 +1,29 @@
+<% 
+  @page_title = "Page Texts"
+%>
+
+<table>
+  <tr>
+    <th>Key</th>
+    <th>Body</th>
+    <th>Locales</th>
+  </tr>
+
+<% for page_text in @page_texts %>
+  <tr>
+    <td>
+      <%= link_to("<b>#{h(page_text.key)}</b>", page_text) %>
+      <span style="font-size: 90%">
+        <%= link_to 'Edit', edit_page_text_path(page_text) %> |
+        <%= link_to 'Destroy', page_text, :confirm => 'Are you sure?', :method => :delete %>
+      </span>
+    </td>
+    <td><%=h truncate(page_text.body, :length => 100) %></td>
+    <td><%=h page_text.globalize_translations.map(&:locale).join(", ") %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New page_text', new_page_text_path %>

@@ -1,0 +1,21 @@
+<% 
+  @page_title = "New Page Text"
+%>
+
+<% form_for(@page_text) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :key %><br />
+    <%= f.text_field :key %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body, :cols => 100 %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', page_texts_path %>

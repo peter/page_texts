@@ -1,4 +1,7 @@
 module PageTexts
+  mattr_accessor :locales
+  self.locales = ["en-US", "sv-SE"]
+
   def self.create_tables
     connection = ActiveRecord::Base.connection
 
@@ -13,8 +16,6 @@ module PageTexts
       t.string :locale, :null => false
       t.timestamps
     end
-
-    PageTextTranslation.create_versioned_table
   end  
 end
 

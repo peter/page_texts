@@ -1,0 +1,16 @@
+<% 
+  @page_title = "Page Text: #{h(@page_text.key)}"
+%>
+
+<%= link_to 'Back', page_texts_path %>
+
+<p>
+  <b>Body:</b>
+</p>
+
+<%= simple_format(h(@page_text.body)) %>
+
+<p>
+<%= link_to 'Edit', edit_page_text_path(@page_text) %> |
+<%= link_to 'Back', page_texts_path %>
+</p>
