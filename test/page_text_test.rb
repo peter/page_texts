@@ -1,4 +1,5 @@
 require 'test_helper'
+require File.join(File.dirname(__FILE__), "..", "lib", "page_texts_controller")
 
 class PageTextTest < ActiveSupport::TestCase  
   context "Instance created" do
